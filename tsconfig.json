@@ -15,6 +15,12 @@
     },
     {
       "path": "./projects/my-first-app/e2e/tsconfig.json"
+    },
+    {
+      "path": "./projects/my-lib/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/my-lib/tsconfig.spec.json"
     }
 ]
 }
