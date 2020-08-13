@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { SearchService } from './search.service';
 import { Country } from './country';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import {
   tap, switchMap, debounceTime, distinctUntilChanged
 } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import {
 })
 export class ObservablesComponent implements OnInit {
   public loading = false;
-  public countries$: Observable<Country[]>;
+  public countries$: Observable<Country[]> = of([]);
   private searchTerms = new Subject<string>();
 
   constructor(
