@@ -1,0 +1,25 @@
+<div class="container">
+  <form>
+    <div class="form-group search-bar">
+      <!-- Search -->
+      <input class="form-control" placeholder="Search..." type="text" #searchBox (input)="search(searchBox.value)">
+
+      <!-- Progres -->
+      <div class="loader" *ngIf="loading">
+        <div class="c-three-dots-loader"></div>
+      </div>
+    </div>
+
+    <!-- Search Result -->
+    <div class="list-group">
+      <div class="list-group-item list-group-item-action" *ngFor="let country of countries$ | async">
+        <div class="media">
+          <img alt="..." class="mr-3" src="{{country.flag}}">
+          <div class="media-body">
+            <p class="mt-0">{{country.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
