@@ -189,6 +189,7 @@
               "projects/angular-all-summarize/src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "projects/angular-all-summarize/src/styles.scss"
             ],
             "scripts": []
