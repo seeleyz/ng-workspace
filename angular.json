@@ -163,6 +163,127 @@
           }
         }
       }
+    },
+    "angular-all-summarize": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/angular-all-summarize",
+      "sourceRoot": "projects/angular-all-summarize/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-all-summarize",
+            "index": "projects/angular-all-summarize/src/index.html",
+            "main": "projects/angular-all-summarize/src/main.ts",
+            "polyfills": "projects/angular-all-summarize/src/polyfills.ts",
+            "tsConfig": "projects/angular-all-summarize/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/angular-all-summarize/src/favicon.ico",
+              "projects/angular-all-summarize/src/assets"
+            ],
+            "styles": [
+              "projects/angular-all-summarize/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/angular-all-summarize/src/environments/environment.ts",
+                  "with": "projects/angular-all-summarize/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-all-summarize:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-all-summarize:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-all-summarize:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-all-summarize/src/test.ts",
+            "polyfills": "projects/angular-all-summarize/src/polyfills.ts",
+            "tsConfig": "projects/angular-all-summarize/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-all-summarize/karma.conf.js",
+            "assets": [
+              "projects/angular-all-summarize/src/favicon.ico",
+              "projects/angular-all-summarize/src/assets"
+            ],
+            "styles": [
+              "projects/angular-all-summarize/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-all-summarize/tsconfig.app.json",
+              "projects/angular-all-summarize/tsconfig.spec.json",
+              "projects/angular-all-summarize/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/angular-all-summarize/e2e/protractor.conf.js",
+            "devServerTarget": "angular-all-summarize:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-all-summarize:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "my-first-app"
 }

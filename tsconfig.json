@@ -21,6 +21,15 @@
     },
     {
       "path": "./projects/my-lib/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/angular-all-summarize/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/angular-all-summarize/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/angular-all-summarize/e2e/tsconfig.json"
     }
 ]
 }
