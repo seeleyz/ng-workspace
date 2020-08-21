@@ -1,0 +1,41 @@
+@import "../../../../../../scss/custom.scss";
+:host {
+  height: 100%;
+  width: 100%;
+  display: block;
+  overflow-y: auto;
+  .custom-element {
+    color: theme-color-level(primary, -10);
+  }
+  .card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  // With variable
+  .alpha { color: $purple; }
+
+  // From the Sass map with our `color()` function
+  .beta { color: color("orange"); }
+
+  // Generate alert modifier classes
+  @each $color, $value in $theme-colors {
+    .alert-#{$color} {
+      @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
+    }
+  }
+
+  // Generate `.bg-*` color utilities
+  @each $color, $value in $theme-colors {
+    @include bg-variant('.bg-#{$color}', $value);
+  }
+}
+
+
